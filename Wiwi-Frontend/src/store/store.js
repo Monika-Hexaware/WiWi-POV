@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
+import menuReducer from '../views/menu/store/menuSlice'
 import { createLogger } from 'redux-logger'
 import notificationReducer from '../middleware/notification/store/notificationSlice'
 let middlewares = []
@@ -11,6 +12,7 @@ if (process.env.NODE_ENV === `development`) {
 export default configureStore({
     reducer: {
         notification: notificationReducer,
+        menu: menuReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(middlewares),
